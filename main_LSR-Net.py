@@ -8,7 +8,7 @@ x_test_CNN=np.load('LSR-Net_CNN_x_test.npy')
 x_train_VGGish=np.load('LSR-Net_VGGish_x_train.npy')
 x_test_VGGish=np.load('LSR-Net_VGGish_x_test.npy')
 
-'''特征融合'''
+'''将两部分特征融合为384维特征'''
 x_train=np.concatenate((x_train_VGGish,x_train_CNN),1)
 x_test=np.concatenate((x_test_VGGish,x_test_CNN),1)
 
