@@ -29,7 +29,6 @@ for i in range(10):
     ModelArray.append(catmodel)
     TestScore=catmodel.score(x_test,y_test)
     ScoreArray.append(TestScore)
-
 MaxScoreIndex=ScoreArray.index(max(ScoreArray))
 MyModel=ModelArray[MaxScoreIndex]
 
