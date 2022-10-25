@@ -47,7 +47,7 @@ import vggish_params
 '''Build_New_VGGish函数的功能：在预训练模型VGGish中融合ECA-Net'''
 from BuildVGGish import Build_New_VGGish
 '''Feature_Aug函数的功能:利用多尺度空洞卷积对VGGish网络提取的特征向量进行运算，实现特征增强'''
-from FeatureAug import Feature_Aug
+from Feature_Aug import Feature_Aug
 
 '''构建VGGish优化模型'''
 vggish_model2=Build_New_VGGish()
