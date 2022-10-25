@@ -6,7 +6,7 @@ for gpu in gpus:
     tf.config.experimental.set_memory_growth(gpu,True)
 
 '''
-1.事先将肺音波形数据转换为(N/0.96,96,64,1)的对数梅尔频率谱 (这里按照Google提供的转换方式及参数)，然后保存在.npy文件中
+1.将肺音波形数据转换为(N/0.96,96,64,1)的对数梅尔频率谱 (这里按照Google提供的转换方式及参数)，然后保存在.npy文件中
 2.此处加载.npy文件 即 加载(N/0.96,96,64,1)的对数梅尔频率特征
 '''
 normal_feature=np.load('Feature_VGGish_Normal.npy')
