@@ -8,7 +8,7 @@ x_test_CNN=np.load('LSR-Net_CNN_x_test.npy')
 x_train_VGGish=np.load('LSR-Net_VGGish_x_train.npy')
 x_test_VGGish=np.load('LSR-Net_VGGish_x_test.npy')
 
-'''特征融合'''
+'''将两部分特征融合为384维特征'''
 x_train=np.concatenate((x_train_VGGish,x_train_CNN),1)
 x_test=np.concatenate((x_test_VGGish,x_test_CNN),1)
 
@@ -18,7 +18,7 @@ y_test=np.load('LSR-Net_y_test.npy')
 
 '''
 1.将融合后的特征输入catboost实现训练并测试
-2.由于catboost调参(网格搜索)时间消耗过大，因此使用初始默认的随机参数执行10次，取结果较高的
+2.由于catboost调参(网格搜索)时间消耗过大，这里没有采用网格搜索的方式。直接使用初始的随机参数执行10次，取结果较高的一次。
 '''
 ScoreArray=[]
 ModelArray=[]
@@ -29,7 +29,6 @@ for i in range(10):
     ModelArray.append(catmodel)
     TestScore=catmodel.score(x_test,y_test)
     ScoreArray.append(TestScore)
-
 MaxScoreIndex=ScoreArray.index(max(ScoreArray))
 MyModel=ModelArray[MaxScoreIndex]
 
